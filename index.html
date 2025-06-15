@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WMC世界军推锦标赛 - 投资人介绍</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>WMC世界軍推錦標賽 - 投資人項目介紹</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;800&display=swap');
-        
         :root {
             --primary: #1f4e79;
             --secondary: #8b4513;
             --accent: #ff6b35;
             --military-green: #4a5d23;
             --gold: #ffd700;
-            --dark-bg: #0a0a0a;
-            --card-bg: #1a202c;
-            --text-light: #e2e8f0;
-            --text-muted: #a0aec0;
+            --bg-dark: #0a0a0a;
         }
         
         * {
@@ -27,1814 +21,1858 @@
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-light);
+            font-family: 'Microsoft JhengHei', 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
         }
         
         .presentation-container {
             position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
+            width: 100%;
+            min-height: 100vh;
+            padding-bottom: 120px;
         }
         
         .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            padding: 2rem;
             display: none;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            overflow-y: auto;
+            width: 100%;
+            min-height: calc(100vh - 120px);
+            padding: 40px 60px 60px 60px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(31, 78, 121, 0.05) 0%, rgba(139, 69, 19, 0.05) 100%);
+            border-bottom: 2px solid rgba(255, 107, 53, 0.1);
         }
         
         .slide.active {
             display: flex;
-            opacity: 1;
-            transform: translateX(0);
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
         }
         
-        .slide.prev {
-            transform: translateX(-100%);
+        .slide-content {
+            max-width: 1400px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
         }
         
-        .slide.next {
-            transform: translateX(100%);
-        }
-        
-        /* Logo Styles */
+        /* Logo Design */
         .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
-            letter-spacing: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--gold));
+            font-family: 'Impact', 'Arial Black', 'Microsoft JhengHei', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: 10px;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--gold));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
-            animation: logoGlow 3s ease-in-out infinite alternate;
-            text-align: center;
-        }
-        
-        .logo.large {
-            font-size: 4rem;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
             margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
         }
         
-        .logo.medium {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .logo.small {
-            font-size: 1.8rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .logo-subtitle {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--accent);
-            opacity: 0.9;
-            text-align: center;
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, transparent 30%, var(--accent) 50%, transparent 70%);
+            z-index: -1;
+            border-radius: 20px;
+            opacity: 0.3;
+            animation: logoGlow 3s ease-in-out infinite alternate;
         }
         
         @keyframes logoGlow {
-            0% { text-shadow: 0 0 15px rgba(255, 107, 53, 0.3); }
-            100% { text-shadow: 0 0 30px rgba(255, 107, 53, 0.8), 0 0 40px rgba(31, 78, 121, 0.6); }
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.05); opacity: 0.6; }
         }
         
-        /* Slide Layouts */
-        .slide-content {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
+        .logo-subtitle {
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 2.5rem;
         }
         
         .slide-title {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 2rem;
-            text-align: center;
+            line-height: 1.2;
         }
         
         .slide-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-muted);
+            font-size: 1.8rem;
+            color: #e2e8f0;
             margin-bottom: 3rem;
-            text-align: center;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .grid {
-            display: grid;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .grid-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        
-        .grid-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        
-        .grid-4 {
-            grid-template-columns: repeat(4, 1fr);
-        }
-        
-        .card {
-            background: rgba(26, 32, 44, 0.8);
-            border: 1px solid rgba(255, 107, 53, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.2);
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--gold));
-        }
-        
-        .card-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2rem;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--accent), var(--gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-        
-        /* Navigation */
-        .nav-controls {
+        /* Navigation - 固定在底部 */
+        .nav-container {
             position: fixed;
-            bottom: 2rem;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
             z-index: 1000;
-            background: rgba(26, 32, 44, 0.9);
-            padding: 1rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            display: flex;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 12px 20px;
+            border-radius: 40px;
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 107, 53, 0.2);
+            max-width: 90vw;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         
         .nav-btn {
-            padding: 0.8rem 1.5rem;
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid var(--accent);
-            border-radius: 10px;
-            color: var(--accent);
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 20px;
+            color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 12px;
+            white-space: nowrap;
+            min-width: fit-content;
         }
         
-        .nav-btn:hover {
+        .nav-btn:hover, .nav-btn.active {
             background: var(--accent);
-            color: white;
+            border-color: var(--accent);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
         }
         
-        .slide-indicator {
+        .nav-controls {
             position: fixed;
-            top: 2rem;
-            right: 2rem;
-            background: rgba(26, 32, 44, 0.9);
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 107, 53, 0.2);
-            color: var(--accent);
-            font-weight: 600;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
-        }
-        
-        /* Specific Slide Styles */
-        .hero-slide {
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(26, 26, 46, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23000;stop-opacity:0.8"/><stop offset="50%" style="stop-color:%23001a33;stop-opacity:0.6"/><stop offset="100%" style="stop-color:%23002244;stop-opacity:0.8"/></linearGradient></defs><rect width="1000" height="600" fill="url(%23bg)"/></svg>');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-        }
-        
-        .hero-tagline {
-            font-size: 1.8rem;
-            color: var(--text-muted);
-            margin: 2rem 0;
-            line-height: 1.4;
-        }
-        
-        .value-proposition {
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid var(--accent);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .market-size {
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .timeline {
-            position: relative;
-            margin: 2rem 0;
-        }
-        
-        .timeline-item {
             display: flex;
-            align-items: center;
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background: rgba(26, 32, 44, 0.6);
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
+            gap: 10px;
         }
         
-        .timeline-phase {
-            font-weight: 700;
-            color: var(--accent);
-            min-width: 120px;
-            text-align: left;
-        }
-        
-        .timeline-content {
-            flex: 1;
-            text-align: left;
-            margin-left: 1rem;
-        }
-        
-        .revenue-model {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .revenue-stream {
-            background: rgba(26, 32, 44, 0.8);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 107, 53, 0.2);
-            text-align: center;
-        }
-        
-        .financial-chart {
-            background: rgba(26, 32, 44, 0.8);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(255, 107, 53, 0.2);
-        }
-        
-        .competitive-advantages {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .advantage-item {
-            display: flex;
-            align-items: center;
-            padding: 1.5rem;
-            background: rgba(255, 107, 53, 0.1);
-            border-radius: 12px;
-            border: 1px solid var(--accent);
-        }
-        
-        .advantage-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        .team-member {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(26, 32, 44, 0.8);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 107, 53, 0.2);
-        }
-        
-        .team-avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 2rem;
-        }
-        
-        .investment-ask {
-            background: linear-gradient(135deg, rgba(31, 78, 121, 0.2), rgba(255, 107, 53, 0.2));
-            border: 2px solid var(--accent);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            font-weight: 700;
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
             border: none;
+            border-radius: 50%;
+            color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
+            font-size: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .control-btn:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        /* Grid Layouts - 針對演示優化 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+            text-align: left;
+            margin: 40px 0;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: left;
+            margin: 40px 0;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        /* Cards - 增強可讀性 */
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 25px 50px rgba(255, 107, 53, 0.3);
+        }
+        
+        .card-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 25px;
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
         }
         
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-align: center;
         }
         
-        /* Background Effects */
-        .slide::before {
+        .card-content {
+            color: #e2e8f0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        /* Statistics - 更醒目的數據展示 */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: #e2e8f0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        /* Timeline - 橫向排列優化 */
+        .timeline-horizontal {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 60px 0;
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline-horizontal::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(31, 78, 121, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
-            z-index: 1;
-            pointer-events: none;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent), var(--gold));
+            transform: translateY(-50%);
+            border-radius: 2px;
+        }
+        
+        .timeline-item-horizontal {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            max-width: 300px;
+        }
+        
+        .timeline-marker-horizontal {
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 6px solid var(--bg-dark);
+            margin: 0 auto 25px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+        }
+        
+        .timeline-content-horizontal {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-period {
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        /* Business Model - 收入流優化 */
+        .revenue-stream {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+        
+        .revenue-stream:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .revenue-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+        
+        .revenue-amount {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        /* Feature Lists - 改善列表樣式 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+        
+        .feature-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+        
+        /* Benefit Grid */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 6px solid var(--accent);
+            transition: all 0.3s;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .benefit-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+        
+        .benefit-desc {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Special effects */
+        .glow-text {
+            text-shadow: 0 0 25px rgba(255, 107, 53, 0.8);
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .success-color {
+            color: #10b981;
+        }
+        
+        .warning-color {
+            color: #f59e0b;
         }
         
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .slide {
+                padding: 30px 40px 80px 40px;
+            }
+            
+            .slide-content {
+                max-width: 100%;
+            }
+            
+            .timeline-horizontal {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .timeline-horizontal::before {
+                display: none;
+            }
+            
+            .timeline-item-horizontal {
+                max-width: 100%;
+            }
+        }
+        
         @media (max-width: 768px) {
             .slide {
-                padding: 1rem;
+                padding: 20px 20px 100px 20px;
+            }
+            
+            .logo {
+                font-size: 3rem;
+                letter-spacing: 6px;
             }
             
             .slide-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .slide-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .logo.large {
-                font-size: 2.5rem;
+                font-size: 1.4rem;
             }
             
             .grid-2, .grid-3, .grid-4 {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            .nav-controls {
-                bottom: 1rem;
-                padding: 0.5rem;
+            .nav-container {
+                bottom: 10px;
+                padding: 10px 15px;
+                gap: 5px;
             }
             
             .nav-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
+                padding: 6px 10px;
+                font-size: 10px;
             }
             
-            .revenue-model,
-            .competitive-advantages {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-tagline {
-                font-size: 1.4rem;
+            .control-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
             }
             
             .stat-number {
-                font-size: 2.5rem;
+                font-size: 3rem;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            .card-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
             }
         }
         
-        /* Animation Classes */
+        /* Animation */
         .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        
-        .slide-up {
-            animation: slideUp 0.8s ease-out;
+            animation: fadeIn 0.8s ease-in-out;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .highlight {
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
-            padding: 0.2rem 0;
-            border-radius: 4px;
+        .slide-number {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 107, 53, 0.8);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
         }
         
-        /* Progress bar */
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+        /* 特殊內容樣式 */
+        .contact-info {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            text-align: left;
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* 針對中文優化字體 */
+        h1, h2, h3 {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', 'Hiragino Sans GB', sans-serif;
+        }
+        
+        .section-divider {
+            width: 80px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1001;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--gold));
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 30px auto;
+            border-radius: 2px;
         }
     </style>
 </head>
 <body>
     <div class="presentation-container">
-        <!-- Slide 1: Title Slide -->
-        <div class="slide active hero-slide">
-            <div class="slide-content hero-content">
-                <div class="logo large">WMC</div>
-                <div class="logo-subtitle" style="font-size: 1.5rem;">世界军推锦标赛</div>
-                <div class="logo-subtitle" style="font-size: 1.2rem; margin-top: 0.5rem;">World MILSIM Championship</div>
-                
-                <div class="hero-tagline">
-                    全球首个高度仿真、全场景、多层级<br>
-                    军事模拟对抗赛事体系
-                </div>
-                
-                <div class="value-proposition">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">融合 F1全球巡回赛制 + NBA商业化模式 + 迪士尼主题公园体验</h3>
-                    <p>构建前所未有的军事模拟竞技与体验生态系统</p>
-                </div>
-                
-                <div class="market-size">
-                    <div class="stat-number">260亿美元</div>
-                    <div class="stat-label">全球市场规模 | CAGR 16.8%</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 2: Problem & Opportunity -->
-        <div class="slide">
+        <!-- Slide 1: 封面 -->
+        <div class="slide active fade-in">
+            <div class="slide-number">1/16</div>
             <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">市场机会</h1>
-                <p class="slide-subtitle">一个价值260亿美元的蓝海市场</p>
-                
-                <div class="grid grid-2">
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">行业痛点</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li>全球缺乏统一比赛规则和标准</li>
-                            <li>高专业性赛事观赏性不足</li>
-                            <li>现有场地单一，难以模拟多样战场</li>
-                            <li>装备仿真度与安全性难以平衡</li>
-                            <li>收入来源单一，商业模式局限</li>
-                        </ul>
+                <div class="logo glow-text">WMC</div>
+                <div class="logo-subtitle">WORLD MILSIM CHAMPIONSHIP</div>
+                <h1 class="slide-title">世界軍推錦標賽</h1>
+                <p class="slide-subtitle">全球首個高度仿真軍事模擬對抗賽事體系<br>投資機會介紹</p>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">260億</div>
+                        <div class="stat-label">美元市場規模</div>
                     </div>
-                    
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">市场机遇</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li>全球军推爱好者快速增长 (15.7%年增长率)</li>
-                            <li>数字媒体对差异化内容的强烈需求</li>
-                            <li>新兴市场对军事主题娱乐的增长需求</li>
-                            <li>多元化收入模式的建立空间</li>
-                            <li>成为行业标准制定者的机会</li>
-                        </ul>
+                    <div class="stat-card">
+                        <div class="stat-number">16.8%</div>
+                        <div class="stat-label">年複合增長率</div>
                     </div>
-                </div>
-                
-                <div class="grid grid-3" style="margin-top: 3rem;">
-                    <div class="card">
-                        <div class="stat-number">3200万</div>
-                        <div class="stat-label">全球活跃军推爱好者</div>
-                        <div style="color: #10b981; margin-top: 0.5rem;">年增长 15.7%</div>
+                    <div class="stat-card">
+                        <div class="stat-number">3200萬</div>
+                        <div class="stat-label">全球活躍用戶</div>
                     </div>
-                    <div class="card">
-                        <div class="stat-number">260亿</div>
-                        <div class="stat-label">美元总市场规模</div>
-                        <div style="color: #10b981; margin-top: 0.5rem;">CAGR 16.8%</div>
-                    </div>
-                    <div class="card">
-                        <div class="stat-number">8000万</div>
-                        <div class="stat-label">预计2030年参与者</div>
-                        <div style="color: #10b981; margin-top: 0.5rem;">150%增长</div>
+                    <div class="stat-card">
+                        <div class="stat-number">5億</div>
+                        <div class="stat-label">目標年收入(美元)</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 3: Solution -->
-        <div class="slide">
+        <!-- Slide 2: 執行摘要 -->
+        <div class="slide fade-in">
+            <div class="slide-number">2/16</div>
             <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">解决方案</h1>
-                <p class="slide-subtitle">打造全球标准化的军事模拟对抗生态系统</p>
-                
-                <div class="competitive-advantages">
-                    <div class="advantage-item">
-                        <div class="advantage-icon">
-                            <i class="fas fa-globe-asia"></i>
+                <h1 class="slide-title">執行摘要</h1>
+                <div class="section-divider"></div>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">項目概述</h2>
+                        <p style="margin-bottom: 30px; font-size: 1.2rem; line-height: 1.8;">WMC是全球首個高度仿真、全場景、多層級軍事模擬對抗賽事體系，創造性地融合了F1的全球巡回賽制、NBA的商業化模式以及迪士尼主題公園的文旅體驗。</p>
+                        
+                        <h2 class="highlight">核心價值主張</h2>
+                        <ul class="feature-list">
+                            <li>填補全球軍推職業賽事空白</li>
+                            <li>創新「賽事+文旅+IP」商業模式</li>
+                            <li>建立行業技術和安全標準</li>
+                            <li>打造可持續盈利生態系統</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="highlight">財務亮點</h2>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">📈 預期年收入(第5年)</div>
+                            <div class="revenue-amount">5億美元</div>
                         </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">💰 總融資需求</div>
+                            <div class="revenue-amount">2-3億美元</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">🎯 預期估值</div>
+                            <div class="revenue-amount">30-50億美元</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">⏰ 投資回報期</div>
+                            <div class="revenue-amount">5-7年</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: 市場機會 -->
+        <div class="slide fade-in">
+            <div class="slide-number">3/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">市場機會分析</h1>
+                <div class="section-divider"></div>
+                <div class="grid-2" style="margin-bottom: 40px;">
+                    <div>
+                        <h2 class="highlight">市場規模與增長</h2>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">260億</div>
+                                <div class="stat-label">美元當前市場規模</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number success-color">16.8%</div>
+                                <div class="stat-label">年複合增長率</div>
+                            </div>
+                        </div>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">3200萬</div>
+                                <div class="stat-label">當前活躍用戶</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number success-color">8000萬</div>
+                                <div class="stat-label">2030年預期用戶</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="highlight">區域分布</h2>
+                        <div class="benefit-grid">
+                            <div class="benefit-item">
+                                <div class="benefit-title">北美 33%</div>
+                                <div class="benefit-desc">成熟市場，年增長10.2%</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-title">歐洲 28%</div>
+                                <div class="benefit-desc">穩定增長，年增長12.5%</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-title">亞太 27%</div>
+                                <div class="benefit-desc">高速增長，年增長24.7%</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-title">其他 12%</div>
+                                <div class="benefit-desc">新興市場，巨大潛力</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="highlight">競爭優勢</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-title">市場空白</div>
+                        <div class="card-content">全球缺乏統一的專業軍推賽事體系，WMC填補市場空白，成為行業標準制定者</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🏗️</div>
+                        <div class="card-title">技術壁壘</div>
+                        <div class="card-content">先進的命中判定系統、戰場感知技術和數據分析平台構建技術護城河</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🌍</div>
+                        <div class="card-title">全球網絡</div>
+                        <div class="card-content">五大賽區、多個軍推公園形成全球網絡效應，難以複製</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: 商業模式 -->
+        <div class="slide fade-in">
+            <div class="slide-number">4/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">商業模式創新</h1>
+                <p class="slide-subtitle">多元化收入結構，確保可持續盈利</p>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">四大收入來源</h2>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">🏆 賽事收入</div>
+                            <div class="revenue-amount">30%</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">參賽費、票務、轉播權、贊助</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">🎢 軍推公園</div>
+                            <div class="revenue-amount">40%</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">門票、體驗、餐飲、住宿</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">🎨 IP授權</div>
+                            <div class="revenue-amount">20%</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">遊戲、影視、周邊、裝備</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">📚 教育培訓</div>
+                            <div class="revenue-amount">10%</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">課程、認證、諮詢服務</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="highlight">收入預測(美元)</h2>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">3000萬</div>
+                                <div class="stat-label">第2年預期收入</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">1.5億</div>
+                                <div class="stat-label">第4年預期收入</div>
+                            </div>
+                        </div>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number success-color">5億</div>
+                                <div class="stat-label">第5年預期收入</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number warning-color">35%</div>
+                                <div class="stat-label">預期利潤率</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 40px;">
+                    <h2 class="highlight">商業模式特點</h2>
+                    <div class="grid-3">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🔄</div>
+                            <div class="benefit-title">循環經濟</div>
+                            <div class="benefit-desc">賽事帶動公園、公園培育粉絲、粉絲支撐賽事</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📈</div>
+                            <div class="benefit-title">規模效應</div>
+                            <div class="benefit-desc">全球網絡產生協同效應，邊際成本遞減</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🛡️</div>
+                            <div class="benefit-title">抗風險性</div>
+                            <div class="benefit-desc">多元化收入降低單一業務風險</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: 技術優勢 -->
+        <div class="slide fade-in">
+            <div class="slide-number">5/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">核心技術優勢</h1>
+                <p class="slide-subtitle">構建技術護城河，確保競爭優勢</p>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">核心技術系統</h2>
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-title">命中判定系統(HMSS)</div>
+                            <div class="card-content">
+                                • 多點感應器精確判定<br>
+                                • 即時無線數據傳輸<br>
+                                • 防作弊加密技術<br>
+                                • 99.9%判定準確率
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">戰場感知系統(BAS)</div>
+                            <div class="card-content">
+                                • 全場景高畫質攝影覆蓋<br>
+                                • 熱成像追蹤系統<br>
+                                • 環境感應器監測<br>
+                                • 中央控制數據管理
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-title">數據分析平台</div>
+                            <div class="card-content">
+                                • 基於UWB技術的精確定位<br>
+                                • AI驅動戰術分析<br>
+                                • 3D戰術回放系統<br>
+                                • 個人化訓練建議
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">無人系統整合</div>
+                            <div class="card-content">
+                                • 戰術無人機系統<br>
+                                • 地面機器人平台<br>
+                                • 智能目標系統<br>
+                                • 自動化場景控制
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 40px;">
+                    <h2 class="highlight">技術壁壘與專利保護</h2>
+                    <div class="grid-4">
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">核心技術專利</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">系統可靠性</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">10ms</div>
+                            <div class="stat-label">系統響應時間</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">技術支援</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: 產品體系 -->
+        <div class="slide fade-in">
+            <div class="slide-number">6/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">產品與服務體系</h1>
+                <div class="section-divider"></div>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-icon">🏆</div>
+                        <div class="card-title">賽事產品</div>
+                        <div class="card-content">
+                            <strong>全球巡回賽制</strong><br>
+                            • 五大賽區，20-25站分站賽<br>
+                            • 四級參賽體系<br>
+                            • 五大標準場景<br>
+                            • 專業裁判與技術支援<br><br>
+                            <span class="highlight" style="font-size: 1.2rem;">年度目標觀眾：2億</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🎢</div>
+                        <div class="card-title">軍推公園</div>
+                        <div class="card-content">
+                            <strong>MILSIM.World主題公園</strong><br>
+                            • 專業賽事場地<br>
+                            • 沉浸式體驗項目<br>
+                            • 主題酒店餐飲<br>
+                            • 企業團建服務<br><br>
+                            <span class="highlight" style="font-size: 1.2rem;">規劃：全球10-15個</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📚</div>
+                        <div class="card-title">教育培訓</div>
+                        <div class="card-content">
+                            <strong>三級培訓認證體系</strong><br>
+                            • 基礎培訓(120課時)<br>
+                            • 進階培訓(240課時)<br>
+                            • 精英培訓(360課時)<br>
+                            • 國際認證資格<br><br>
+                            <span class="highlight" style="font-size: 1.2rem;">目標：培訓10萬+學員</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 50px;">
+                    <h2 class="highlight">產品差異化優勢</h2>
+                    <div class="grid-2">
                         <div>
-                            <h4 style="color: var(--accent);">全场景沉浸式体验</h4>
-                            <p style="color: var(--text-muted);">涵盖城市、丛林、沙漠、山地、水域五大标准场景</p>
-                        </div>
-                    </div>
-                    
-                    <div class="advantage-item">
-                        <div class="advantage-icon">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--accent);">多层级竞赛体系</h4>
-                            <p style="color: var(--text-muted);">个人-小组-小队-大队四级参赛体系</p>
-                        </div>
-                    </div>
-                    
-                    <div class="advantage-item">
-                        <div class="advantage-icon">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--accent);">先进装备技术</h4>
-                            <p style="color: var(--text-muted);">统一技术标准+智能判定系统+无人机系统</p>
-                        </div>
-                    </div>
-                    
-                    <div class="advantage-item">
-                        <div class="advantage-icon">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--accent);">军推主题公园</h4>
-                            <p style="color: var(--text-muted);">集赛事+体验+文旅于一体的综合目的地</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="value-proposition" style="margin-top: 3rem;">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">核心价值主张</h3>
-                    <div class="grid grid-3">
-                        <div>
-                            <i class="fas fa-trophy" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">全球标准制定者</h4>
-                            <p style="color: var(--text-muted);">建立行业统一标准和规范</p>
-                        </div>
-                        <div>
-                            <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">多元化收入模式</h4>
-                            <p style="color: var(--text-muted);">赛事+文旅+IP的生态收入</p>
-                        </div>
-                        <div>
-                            <i class="fas fa-users" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">可持续生态系统</h4>
-                            <p style="color: var(--text-muted);">自我循环的商业生态</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4: Business Model -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">商业模式</h1>
-                <p class="slide-subtitle">多元化收入结构，构建可持续商业生态</p>
-                
-                <div class="revenue-model">
-                    <div class="revenue-stream">
-                        <div class="card-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">赛事收入</h3>
-                        <div class="stat-number" style="font-size: 2rem;">30%</div>
-                        <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>参赛注册费和队伍年费</li>
-                            <li>票务收入和VIP体验</li>
-                            <li>转播权销售</li>
-                            <li>赞助和广告收入</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="revenue-stream">
-                        <div class="card-icon">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">军推公园收入</h3>
-                        <div class="stat-number" style="font-size: 2rem;">40%</div>
-                        <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>门票和体验项目</li>
-                            <li>零售和餐饮</li>
-                            <li>企业团建服务</li>
-                            <li>住宿和会议服务</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="revenue-stream">
-                        <div class="card-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">教育培训收入</h3>
-                        <div class="stat-number" style="font-size: 2rem;">15%</div>
-                        <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>课程培训费用</li>
-                            <li>资格认证费用</li>
-                            <li>装备销售分成</li>
-                            <li>企业培训定制</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="revenue-stream">
-                        <div class="card-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">IP衍生收入</h3>
-                        <div class="stat-number" style="font-size: 2rem;">15%</div>
-                        <ul style="text-align: left; color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>品牌授权和特许经营</li>
-                            <li>周边产品销售</li>
-                            <li>数字内容和游戏</li>
-                            <li>影视娱乐开发</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="financial-chart">
-                    <h3 style="color: var(--accent); margin-bottom: 2rem; text-align: center;">收入预测 (百万美元)</h3>
-                    <div class="grid grid-4">
-                        <div style="text-align: center;">
-                            <div style="color: var(--gold); font-size: 1.5rem; font-weight: 700;">Year 1</div>
-                            <div style="color: var(--accent); font-size: 2rem; font-weight: 800;">25</div>
-                            <div style="color: var(--text-muted);">基础建设期</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="color: var(--gold); font-size: 1.5rem; font-weight: 700;">Year 3</div>
-                            <div style="color: var(--accent); font-size: 2rem; font-weight: 800;">150</div>
-                            <div style="color: var(--text-muted);">全球扩张期</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="color: var(--gold); font-size: 1.5rem; font-weight: 700;">Year 5</div>
-                            <div style="color: var(--accent); font-size: 2rem; font-weight: 800;">500</div>
-                            <div style="color: var(--text-muted);">成熟运营期</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="color: var(--gold); font-size: 1.5rem; font-weight: 700;">Year 7</div>
-                            <div style="color: var(--accent); font-size: 2rem; font-weight: 800;">1000+</div>
-                            <div style="color: var(--text-muted);">市场领导者</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: Market Strategy -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">市场策略</h1>
-                <p class="slide-subtitle">全球五大赛区布局，构建完整生态网络</p>
-                
-                <div class="grid grid-3" style="margin-bottom: 3rem;">
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-flag-usa"></i>
-                        </div>
-                        <h3 style="color: var(--accent);">北美赛区</h3>
-                        <p style="color: var(--text-muted); margin: 1rem 0;">市场份额: 33%</p>
-                        <p style="color: var(--text-muted);">成熟市场，强调个人英雄主义和数据分析</p>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-globe-europe"></i>
-                        </div>
-                        <h3 style="color: var(--accent);">欧洲赛区</h3>
-                        <p style="color: var(--text-muted); margin: 1rem 0;">市场份额: 28%</p>
-                        <p style="color: var(--text-muted);">稳定增长，注重战术深度和团队精神</p>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-globe-asia"></i>
-                        </div>
-                        <h3 style="color: var(--accent);">亚太赛区</h3>
-                        <p style="color: var(--text-muted); margin: 1rem 0;">市场份额: 27%</p>
-                        <p style="color: var(--text-muted);">高速增长区域，技术创新和数字化程度高</p>
-                    </div>
-                </div>
-                
-                <div class="timeline">
-                    <h3 style="color: var(--accent); margin-bottom: 2rem; text-align: center;">三阶段发展规划</h3>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-phase">第一阶段<br>(1-2年)</div>
-                        <div class="timeline-content">
-                            <h4 style="color: var(--accent);">基础建设期</h4>
-                            <p style="color: var(--text-muted);">建立标准体系、核心团队，启动首批赛事，完成2个核心基地建设</p>
-                            <div style="margin-top: 0.5rem;">
-                                <span style="background: var(--accent); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">目标收入: 2500万美元</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-phase">第二阶段<br>(3-4年)</div>
-                        <div class="timeline-content">
-                            <h4 style="color: var(--accent);">全球扩张期</h4>
-                            <p style="color: var(--text-muted);">覆盖五大赛区，建成5个基地和3-5个军推公园，建立全球转播网络</p>
-                            <div style="margin-top: 0.5rem;">
-                                <span style="background: var(--accent); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">目标收入: 1.5-2亿美元</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-phase">第三阶段<br>(5年+)</div>
-                        <div class="timeline-content">
-                            <h4 style="color: var(--accent);">成熟运营期</h4>
-                            <p style="color: var(--text-muted);">成为全球顶级体育IP，建立完整产业链，实现可持续盈利</p>
-                            <div style="margin-top: 0.5rem;">
-                                <span style="background: var(--accent); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">目标收入: 5亿美元+</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="value-proposition" style="margin-top: 2rem;">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">战略优势</h3>
-                    <div class="grid grid-2">
-                        <div style="text-align: left;">
-                            <h4 style="color: var(--gold); margin-bottom: 0.5rem;">先发优势</h4>
-                            <p style="color: var(--text-muted);">率先建立行业标准，占据市场领导地位</p>
-                        </div>
-                        <div style="text-align: left;">
-                            <h4 style="color: var(--gold); margin-bottom: 0.5rem;">网络效应</h4>
-                            <p style="color: var(--text-muted);">全球网络越大，价值增长越快</p>
-                        </div>
-                        <div style="text-align: left;">
-                            <h4 style="color: var(--gold); margin-bottom: 0.5rem;">高转换成本</h4>
-                            <p style="color: var(--text-muted);">标准化体系形成用户粘性</p>
-                        </div>
-                        <div style="text-align: left;">
-                            <h4 style="color: var(--gold); margin-bottom: 0.5rem;">多元化收入</h4>
-                            <p style="color: var(--text-muted);">降低单一业务风险，提高抗周期性</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 6: Technology & Innovation -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">技术创新</h1>
-                <p class="slide-subtitle">领先技术构建竞争壁垒</p>
-                
-                <div class="grid grid-2" style="margin-bottom: 3rem;">
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">命中判定系统 (HMSS)</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li>多点传感器覆盖全身要害部位</li>
-                            <li>精确识别命中位置和伤害程度</li>
-                            <li>实时无线数据传输</li>
-                            <li>防作弊加密技术</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">战场感知系统 (BAS)</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li>全场景高清摄像头覆盖</li>
-                            <li>热成像系统追踪人员移动</li>
-                            <li>环境传感器监测战场条件</li>
-                            <li>中央控制系统管理全局数据</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-drone"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">无人系统规范</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li>战术侦察无人机系统</li>
-                            <li>地面机器人支援系统</li>
-                            <li>智能目标识别和追踪</li>
-                            <li>电子对抗和干扰系统</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">数据分析平台</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li>基于UWB技术的实时定位</li>
-                            <li>AI驱动的战术分析</li>
-                            <li>3D战术回放系统</li>
-                            <li>个性化训练建议</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="value-proposition">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">技术护城河</h3>
-                    <div class="grid grid-3">
-                        <div style="text-align: center;">
-                            <i class="fas fa-patent" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">专利保护</h4>
-                            <p style="color: var(--text-muted);">核心技术专利组合</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-database" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">数据积累</h4>
-                            <p style="color: var(--text-muted);">海量战术数据优势</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">生态整合</h4>
-                            <p style="color: var(--text-muted);">上下游技术整合</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 7: Competition Analysis -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">竞争分析</h1>
-                <p class="slide-subtitle">差异化定位，建立竞争优势</p>
-                
-                <div class="competitive-advantages">
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">传统军推活动</h3>
-                        <div style="text-align: left;">
-                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>优势:</strong> 历史悠久，忠实用户群</p>
-                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>劣势:</strong> 标准不统一，商业化程度低</p>
-                            <p style="color: #ef4444;"><strong>WMC优势:</strong> 统一标准，专业化运营</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">电子竞技</h3>
-                        <div style="text-align: left;">
-                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>优势:</strong> 观赏性强，商业成熟</p>
-                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>劣势:</strong> 缺乏身体参与，虚拟体验</p>
-                            <p style="color: #ef4444;"><strong>WMC优势:</strong> 真实体验，身心并重</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">极限运动</h3>
-                        <div style="text-align: left;">
-                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>优势:</strong> 刺激性强，商业价值高</p>
-                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>劣势:</strong> 个人项目为主，安全风险</p>
-                            <p style="color: #ef4444;"><strong>WMC优势:</strong> 团队协作，安全可控</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card" style="padding: 1.5rem;">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">主题公园</h3>
-                        <div style="text-align: left;">
-                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>优势:</strong> 成熟商业模式，家庭娱乐</p>
-                            <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>劣势:</strong> 被动体验，缺乏竞技性</p>
-                            <p style="color: #ef4444;"><strong>WMC优势:</strong> 主动参与，竞技+娱乐</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="value-proposition" style="margin-top: 3rem;">
-                    <h3 style="color: var(--accent); margin-bottom: 2rem;">WMC独特价值定位</h3>
-                    <div class="grid grid-4">
-                        <div style="text-align: center;">
-                            <div style="background: linear-gradient(135deg, var(--primary), var(--accent)); width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <i class="fas fa-crown" style="color: white; font-size: 1.5rem;"></i>
-                            </div>
-                            <h4 style="color: var(--accent);">行业唯一</h4>
-                            <p style="color: var(--text-muted);">全球首个标准化军推赛事体系</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: linear-gradient(135deg, var(--primary), var(--accent)); width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <i class="fas fa-shield-alt" style="color: white; font-size: 1.5rem;"></i>
-                            </div>
-                            <h4 style="color: var(--accent);">技术壁垒</h4>
-                            <p style="color: var(--text-muted);">先进安全技术和数据分析</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: linear-gradient(135deg, var(--primary), var(--accent)); width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <i class="fas fa-globe" style="color: white; font-size: 1.5rem;"></i>
-                            </div>
-                            <h4 style="color: var(--accent);">全球网络</h4>
-                            <p style="color: var(--text-muted);">五大赛区生态网络效应</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: linear-gradient(135deg, var(--primary), var(--accent)); width: 60px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <i class="fas fa-rocket" style="color: white; font-size: 1.5rem;"></i>
-                            </div>
-                            <h4 style="color: var(--accent);">增长潜力</h4>
-                            <p style="color: var(--text-muted);">多元化收入，可扩展性强</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 8: Team -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">核心团队</h1>
-                <p class="slide-subtitle">顶级跨界团队，具备执行大型全球项目的能力</p>
-                
-                <div class="grid grid-3" style="margin-bottom: 3rem;">
-                    <div class="team-member">
-                        <div class="team-avatar">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3 style="color: var(--accent);">CEO & 创始人</h3>
-                        <h4 style="color: var(--gold); margin: 0.5rem 0;">体育产业资深专家</h4>
-                        <ul style="text-align: left; color: var(--text-muted); font-size: 0.9rem; padding-left: 1.5rem;">
-                            <li>15年体育产业运营经验</li>
-                            <li>曾主导3个国际赛事IP开发</li>
-                            <li>成功退出项目估值累计5亿美元</li>
-                            <li>哈佛商学院MBA</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="team-avatar">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <h3 style="color: var(--accent);">CTO & 联合创始人</h3>
-                        <h4 style="color: var(--gold); margin: 0.5rem 0;">军事技术专家</h4>
-                        <ul style="text-align: left; color: var(--text-muted); font-size: 0.9rem; padding-left: 1.5rem;">
-                            <li>20年军事系统开发经验</li>
-                            <li>前美军特种部队技术顾问</li>
-                            <li>拥有12项相关技术专利</li>
-                            <li>MIT电子工程博士</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="team-avatar">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 style="color: var(--accent);">COO & 联合创始人</h3>
-                        <h4 style="color: var(--gold); margin: 0.5rem 0;">运营管理专家</h4>
-                        <ul style="text-align: left; color: var(--text-muted); font-size: 0.9rem; padding-left: 1.5rem;">
-                            <li>12年大型项目运营管理</li>
-                            <li>曾任迪士尼亚太区运营总监</li>
-                            <li>成功管理6个大型主题项目</li>
-                            <li>斯坦福大学运营管理硕士</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="grid grid-2">
-                    <div class="card">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">核心团队优势</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li><strong>跨界整合:</strong> 体育、军事、娱乐、技术四大领域专家</li>
-                            <li><strong>执行能力:</strong> 丰富的大型国际项目管理经验</li>
-                            <li><strong>资源网络:</strong> 广泛的行业人脉和合作资源</li>
-                            <li><strong>创新思维:</strong> 前瞻性视野和创新解决方案</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">顾问委员会</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li><strong>军事专家:</strong> 前特种部队指挥官和战术专家</li>
-                            <li><strong>体育产业:</strong> 国际体育组织高管和奥委会成员</li>
-                            <li><strong>娱乐媒体:</strong> 好莱坞制作人和媒体集团高管</li>
-                            <li><strong>投资顾问:</strong> 知名投资机构合伙人和行业分析师</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="value-proposition" style="margin-top: 2rem;">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">团队执行力证明</h3>
-                    <div class="grid grid-3">
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2rem;">8个</div>
-                            <div class="stat-label">成功项目经验</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2rem;">50亿</div>
-                            <div class="stat-label">美元项目管理经验</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2rem;">25项</div>
-                            <div class="stat-label">相关技术专利</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 9: Financial Projections -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">财务预测</h1>
-                <p class="slide-subtitle">基于保守估计的财务模型</p>
-                
-                <div class="grid grid-2" style="margin-bottom: 3rem;">
-                    <div class="financial-chart">
-                        <h3 style="color: var(--accent); margin-bottom: 1.5rem;">收入增长预测</h3>
-                        <div class="grid grid-4">
-                            <div style="text-align: center;">
-                                <div style="color: var(--gold); font-weight: 700;">2025</div>
-                                <div style="color: var(--accent); font-size: 1.5rem; font-weight: 800;">$25M</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">基础建设</div>
-                            </div>
-                            <div style="text-align: center;">
-                                <div style="color: var(--gold); font-weight: 700;">2026</div>
-                                <div style="color: var(--accent); font-size: 1.5rem; font-weight: 800;">$75M</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">快速增长</div>
-                            </div>
-                            <div style="text-align: center;">
-                                <div style="color: var(--gold); font-weight: 700;">2027</div>
-                                <div style="color: var(--accent); font-size: 1.5rem; font-weight: 800;">$150M</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">规模扩张</div>
-                            </div>
-                            <div style="text-align: center;">
-                                <div style="color: var(--gold); font-weight: 700;">2029</div>
-                                <div style="color: var(--accent); font-size: 1.5rem; font-weight: 800;">$500M</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">成熟运营</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="financial-chart">
-                        <h3 style="color: var(--accent); margin-bottom: 1.5rem;">盈利能力分析</h3>
-                        <div style="text-align: left;">
-                            <div style="margin-bottom: 1rem;">
-                                <div style="color: var(--gold); font-weight: 700;">毛利率</div>
-                                <div style="color: var(--accent); font-size: 1.2rem;">65-75%</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">高毛利的服务型商业模式</div>
-                            </div>
-                            <div style="margin-bottom: 1rem;">
-                                <div style="color: var(--gold); font-weight: 700;">EBITDA率</div>
-                                <div style="color: var(--accent); font-size: 1.2rem;">25-35%</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">规模化后的优异盈利能力</div>
-                            </div>
-                            <div style="margin-bottom: 1rem;">
-                                <div style="color: var(--gold); font-weight: 700;">投资回报率</div>
-                                <div style="color: var(--accent); font-size: 1.2rem;">35-45%</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">多元化收入模式的高ROI</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="revenue-model">
-                    <div class="revenue-stream">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">关键财务指标</h3>
-                        <div style="text-align: left;">
-                            <div style="margin-bottom: 0.8rem;">
-                                <span style="color: var(--gold);">客户获取成本 (CAC):</span>
-                                <span style="color: var(--accent); font-weight: 700;"> $85</span>
-                            </div>
-                            <div style="margin-bottom: 0.8rem;">
-                                <span style="color: var(--gold);">客户生命周期价值 (LTV):</span>
-                                <span style="color: var(--accent); font-weight: 700;"> $1,200</span>
-                            </div>
-                            <div style="margin-bottom: 0.8rem;">
-                                <span style="color: var(--gold);">LTV/CAC比率:</span>
-                                <span style="color: var(--accent); font-weight: 700;"> 14:1</span>
-                            </div>
-                            <div style="margin-bottom: 0.8rem;">
-                                <span style="color: var(--gold);">月度复合增长率:</span>
-                                <span style="color: var(--accent); font-weight: 700;"> 15-25%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="revenue-stream">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">资金使用计划</h3>
-                        <div style="text-align: left;">
-                            <div style="margin-bottom: 0.8rem;">
-                                <span style="color: var(--gold);">场地建设 (40%):</span>
-                                <span style="color: var(--text-muted);"> 核心基地和军推公园</span>
-                            </div>
-                            <div style="margin-bottom: 0.8rem;">
-                                <span style="color: var(--gold);">技术研发 (25%):</span>
-                                <span style="color: var(--text-muted);"> 核心技术系统开发</span>
-                            </div>
-                            <div style="margin-bottom: 0.8rem;">
-                                <span style="color: var(--gold);">市场推广 (20%):</span>
-                                <span style="color: var(--text-muted);"> 全球品牌建设和获客</span>
-                            </div>
-                            <div style="margin-bottom: 0.8rem;">
-                                <span style="color: var(--gold);">运营资金 (15%):</span>
-                                <span style="color: var(--text-muted);"> 团队建设和运营支出</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="value-proposition">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">投资亮点</h3>
-                    <div class="grid grid-4">
-                        <div style="text-align: center;">
-                            <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">高增长</h4>
-                            <p style="color: var(--text-muted);">年收入增长率150%+</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">可预测</h4>
-                            <p style="color: var(--text-muted);">订阅制收入模式</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-expand-arrows-alt" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">可扩展</h4>
-                            <p style="color: var(--text-muted);">轻资产模式复制</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-sync-alt" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">抗周期</h4>
-                            <p style="color: var(--text-muted);">多元化收入结构</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 10: Investment Ask -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">投资需求</h1>
-                <p class="slide-subtitle">A轮融资，共创军推运动的未来</p>
-                
-                <div class="investment-ask">
-                    <div class="grid grid-2" style="margin-bottom: 2rem;">
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 3.5rem;">$50M</div>
-                            <div class="stat-label" style="font-size: 1.2rem;">A轮融资目标</div>
-                            <div style="color: var(--text-muted); margin-top: 0.5rem;">18-24个月发展资金</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 3.5rem;">15-20%</div>
-                            <div class="stat-label" style="font-size: 1.2rem;">出让股权比例</div>
-                            <div style="color: var(--text-muted); margin-top: 0.5rem;">估值$250-330M</div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-3" style="margin: 2rem 0;">
-                        <div style="text-align: center;">
-                            <i class="fas fa-map-marked-alt" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">建设2个核心基地</h4>
-                            <p style="color: var(--text-muted);">北美和欧洲旗舰基地</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-users" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">培育32支专业队伍</h4>
-                            <p style="color: var(--text-muted);">建立职业联赛体系</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-eye" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">获得2000万观众</h4>
-                            <p style="color: var(--text-muted);">全球直播观众基数</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="grid grid-2" style="margin: 3rem 0;">
-                    <div class="card">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">投资者权益</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li><strong>董事会席位:</strong> 投资额超过$10M可获得董事会观察员席位</li>
-                            <li><strong>优先认购权:</strong> 后续融资轮次的优先参与权</li>
-                            <li><strong>反稀释保护:</strong> 标准反稀释条款保护</li>
-                            <li><strong>信息权:</strong> 定期财务和运营报告</li>
-                            <li><strong>退出机制:</strong> IPO或战略收购的共同退出权</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">里程碑目标</h3>
-                        <ul style="text-align: left; color: var(--text-muted); padding-left: 1.5rem;">
-                            <li><strong>12个月:</strong> 首个核心基地投入运营</li>
-                            <li><strong>18个月:</strong> 首届全球锦标赛举办</li>
-                            <li><strong>24个月:</strong> 达到$75M年收入规模</li>
-                            <li><strong>36个月:</strong> 启动B轮融资或IPO准备</li>
-                            <li><strong>60个月:</strong> 实现$500M年收入目标</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="value-proposition">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">投资回报预期</h3>
-                    <div class="grid grid-3">
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2rem;">5-10x</div>
-                            <div class="stat-label">3-5年投资回报倍数</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2rem;">$2-5B</div>
-                            <div class="stat-label">退出时预期估值</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2rem;">40%+</div>
-                            <div class="stat-label">年化内部收益率</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 11: Risk Analysis -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo medium">WMC</div>
-                <h1 class="slide-title">风险分析</h1>
-                <p class="slide-subtitle">识别风险，制定应对策略</p>
-                
-                <div class="grid grid-2" style="margin-bottom: 3rem;">
-                    <div class="card">
-                        <h3 style="color: #ef4444; margin-bottom: 1rem;">主要风险</h3>
-                        <div style="text-align: left;">
-                            <div style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
-                                <h4 style="color: #ef4444; margin-bottom: 0.5rem;">监管风险</h4>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;">各国对军事模拟活动监管差异</p>
-                            </div>
-                            <div style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
-                                <h4 style="color: #ef4444; margin-bottom: 0.5rem;">市场接受度</h4>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;">新兴运动市场培育需要时间</p>
-                            </div>
-                            <div style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
-                                <h4 style="color: #ef4444; margin-bottom: 0.5rem;">竞争风险</h4>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;">大型体育娱乐集团可能跟进</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <h3 style="color: #10b981; margin-bottom: 1rem;">应对策略</h3>
-                        <div style="text-align: left;">
-                            <div style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
-                                <h4 style="color: #10b981; margin-bottom: 0.5rem;">合规先行</h4>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;">建立严格安全标准，积极与监管部门沟通</p>
-                            </div>
-                            <div style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
-                                <h4 style="color: #10b981; margin-bottom: 0.5rem;">循序渐进</h4>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;">从核心市场开始，逐步扩张全球网络</p>
-                            </div>
-                            <div style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
-                                <h4 style="color: #10b981; margin-bottom: 0.5rem;">技术壁垒</h4>
-                                <p style="color: var(--text-muted); font-size: 0.9rem;">构建专利池和技术护城河</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="value-proposition">
-                    <h3 style="color: var(--accent); margin-bottom: 2rem;">风险控制措施</h3>
-                    <div class="grid grid-4">
-                        <div style="text-align: center;">
-                            <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">分散风险</h4>
-                            <p style="color: var(--text-muted);">多地区多业务分散风险</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-handshake" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">战略合作</h4>
-                            <p style="color: var(--text-muted);">与政府和大企业建立合作</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-coins" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">财务保守</h4>
-                            <p style="color: var(--text-muted);">保守财务模型和充足资金</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-sync-alt" style="font-size: 2rem; color: var(--gold); display: block; margin-bottom: 1rem;"></i>
-                            <h4 style="color: var(--accent);">灵活调整</h4>
-                            <p style="color: var(--text-muted);">快速响应市场变化能力</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card" style="margin-top: 2rem; padding: 2rem;">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem; text-align: center;">为什么是现在？</h3>
-                    <div class="grid grid-3">
-                        <div style="text-align: center;">
-                            <h4 style="color: var(--gold);">市场时机</h4>
-                            <p style="color: var(--text-muted);">军推市场快速增长，正处于爆发前夜</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <h4 style="color: var(--gold);">技术成熟</h4>
-                            <p style="color: var(--text-muted);">相关技术成熟，成本下降到可商业化水平</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <h4 style="color: var(--gold);">资本环境</h4>
-                            <p style="color: var(--text-muted);">投资者对新兴体育娱乐项目关注度高</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 12: Call to Action -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="logo large">WMC</div>
-                <div class="logo-subtitle" style="font-size: 1.8rem;">共创军推运动的辉煌未来</div>
-                
-                <div class="hero-tagline" style="margin: 2rem 0;">
-                    加入我们，成为全球首个标准化军事模拟对抗赛事体系的缔造者
-                </div>
-                
-                <div class="investment-ask" style="margin: 3rem 0;">
-                    <h2 style="color: var(--accent); margin-bottom: 2rem;">投资机会总结</h2>
-                    <div class="grid grid-3">
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2.5rem;">260亿</div>
-                            <div class="stat-label">美元蓝海市场</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2.5rem;">5-10x</div>
-                            <div class="stat-label">预期投资回报</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2.5rem;">$50M</div>
-                            <div class="stat-label">A轮融资需求</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="value-proposition">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">核心投资价值</h3>
-                    <div class="grid grid-2">
-                        <div style="text-align: left;">
-                            <ul style="color: var(--text-muted); padding-left: 1.5rem;">
-                                <li><strong style="color: var(--gold);">市场领导地位:</strong> 全球首个标准化军推赛事体系</li>
-                                <li><strong style="color: var(--gold);">技术护城河:</strong> 专利技术和数据积累优势</li>
-                                <li><strong style="color: var(--gold);">多元化收入:</strong> 赛事+文旅+IP的生态模式</li>
+                            <h3 style="color: var(--accent); margin-bottom: 25px; font-size: 1.5rem;">vs 傳統軍推活動</h3>
+                            <ul class="feature-list">
+                                <li>統一技術標準和規則</li>
+                                <li>專業化賽事組織</li>
+                                <li>全球化品牌影響力</li>
+                                <li>商業化營運模式</li>
+                                <li>觀賞性和娛樂性</li>
                             </ul>
                         </div>
-                        <div style="text-align: left;">
-                            <ul style="color: var(--text-muted); padding-left: 1.5rem;">
-                                <li><strong style="color: var(--gold);">全球网络:</strong> 五大赛区的网络效应</li>
-                                <li><strong style="color: var(--gold);">顶级团队:</strong> 跨界整合的专业执行团队</li>
-                                <li><strong style="color: var(--gold);">巨大潜力:</strong> 万亿级体育娱乐产业机会</li>
+                        <div>
+                            <h3 style="color: var(--accent); margin-bottom: 25px; font-size: 1.5rem;">vs 傳統體育賽事</h3>
+                            <ul class="feature-list">
+                                <li>更高的參與門檻和專業性</li>
+                                <li>科技含量和創新性更強</li>
+                                <li>軍事文化的獨特吸引力</li>
+                                <li>全方位體驗產品組合</li>
+                                <li>更強的社群黏性</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                
-                <div style="margin: 3rem 0; text-align: center;">
-                    <button class="cta-button" style="font-size: 1.5rem; padding: 1.5rem 3rem;">
-                        <i class="fas fa-handshake"></i>
-                        开始合作对话
-                    </button>
-                </div>
-                
-                <div class="card" style="margin-top: 2rem; background: rgba(255, 107, 53, 0.1); border-color: var(--accent);">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem; text-align: center;">联系信息</h3>
-                    <div class="grid grid-2">
-                        <div style="text-align: center;">
-                            <i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--accent); display: block; margin-bottom: 0.5rem;"></i>
-                            <div style="color: var(--text-light); font-weight: 600;">partnerships@wmc.cool</div>
-                            <div style="color: var(--text-muted); font-size: 0.9rem;">商业合作与投资</div>
+            </div>
+        </div>
+
+        <!-- Slide 7: 發展規劃 - 橫向時間線 -->
+        <div class="slide fade-in">
+            <div class="slide-number">7/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">五年發展規劃</h1>
+                <div class="section-divider"></div>
+                <div class="timeline-horizontal">
+                    <div class="timeline-item-horizontal">
+                        <div class="timeline-marker-horizontal"></div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-title">基礎建設期</div>
+                            <div class="timeline-period">第1-2年</div>
+                            <div style="color: #e2e8f0; line-height: 1.8;">
+                                • 建立組織架構和標準體系<br>
+                                • 完成2個核心賽事基地<br>
+                                • 舉辦首屆區域賽事<br>
+                                • 培育32支專業隊伍<br>
+                                • 完成A輪融資5000萬美元
+                            </div>
                         </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-phone" style="font-size: 1.5rem; color: var(--accent); display: block; margin-bottom: 0.5rem;"></i>
-                            <div style="color: var(--text-light); font-weight: 600;">+1 (555) 123-WMC</div>
-                            <div style="color: var(--text-muted); font-size: 0.9rem;">24小时热线</div>
+                    </div>
+                    <div class="timeline-item-horizontal">
+                        <div class="timeline-marker-horizontal"></div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-title">全球擴張期</div>
+                            <div class="timeline-period">第3-4年</div>
+                            <div style="color: #e2e8f0; line-height: 1.8;">
+                                • 覆蓋全球五大賽區<br>
+                                • 建成5個核心賽事基地<br>
+                                • 開放3-5個軍推公園<br>
+                                • 啟動全球總決賽<br>
+                                • 完成B、C輪融資2億美元
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item-horizontal">
+                        <div class="timeline-marker-horizontal"></div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-title">成熟營運期</div>
+                            <div class="timeline-period">第5年+</div>
+                            <div style="color: #e2e8f0; line-height: 1.8;">
+                                • 年收入突破5億美元<br>
+                                • 全球觀眾突破2億<br>
+                                • 軍推公園網絡10-15個<br>
+                                • 考慮IPO或戰略退出<br>
+                                • 市場估值30-50億美元
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: 財務規劃 -->
+        <div class="slide fade-in">
+            <div class="slide-number">8/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">財務規劃與投資回報</h1>
+                <div class="section-divider"></div>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">五年收入預測</h2>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">500萬</div>
+                                <div class="stat-label">第1年</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">3000萬</div>
+                                <div class="stat-label">第2年</div>
+                            </div>
+                        </div>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">8000萬</div>
+                                <div class="stat-label">第3年</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">1.5億</div>
+                                <div class="stat-label">第4年</div>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="margin-top: 20px;">
+                            <div class="stat-number success-color">5億</div>
+                            <div class="stat-label">第5年目標收入</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="highlight">投資需求分配</h2>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">🏗️ 基礎設施建設</div>
+                            <div class="revenue-amount">40%</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">賽事基地、軍推公園建設</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">💻 技術研發</div>
+                            <div class="revenue-amount">25%</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">裝備研發、系統開發</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">📢 市場行銷</div>
+                            <div class="revenue-amount">20%</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">品牌建設、推廣活動</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">👥 團隊建設</div>
+                            <div class="revenue-amount">15%</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">人才招募、培訓發展</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 40px;">
+                    <h2 class="highlight">投資回報預期</h2>
+                    <div class="grid-4">
+                        <div class="stat-card">
+                            <div class="stat-number success-color">10-15x</div>
+                            <div class="stat-label">預期投資回報倍數</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">5-7年</div>
+                            <div class="stat-label">投資回報週期</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">35%</div>
+                            <div class="stat-label">第5年利潤率</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">IPO</div>
+                            <div class="stat-label">預期退出方式</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: 團隊介紹 -->
+        <div class="slide fade-in">
+            <div class="slide-number">9/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">核心團隊</h1>
+                <p class="slide-subtitle">匯聚體育、軍事、技術、商業各領域頂尖人才</p>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-icon">👨‍💼</div>
+                        <div class="card-title">執行長</div>
+                        <div class="card-content">
+                            <strong>體育產業資深專家</strong><br>
+                            • 15年體育賽事營運經驗<br>
+                            • 曾任國際體育組織高管<br>
+                            • 成功營運多個大型賽事<br>
+                            • MBA及體育管理碩士
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚙️</div>
+                        <div class="card-title">技術長</div>
+                        <div class="card-content">
+                            <strong>軍事技術專家</strong><br>
+                            • 20年軍事裝備研發經驗<br>
+                            • 多項軍用技術專利<br>
+                            • 前國防科技公司技術總監<br>
+                            • 電腦科學博士學位
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">💰</div>
+                        <div class="card-title">財務長</div>
+                        <div class="card-content">
+                            <strong>財務管理專家</strong><br>
+                            • 12年投銀和PE經驗<br>
+                            • 參與多起IPO項目<br>
+                            • 熟悉體育娛樂行業<br>
+                            • CPA及金融碩士
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 50px;">
+                    <h2 class="highlight">顧問團隊</h2>
+                    <div class="grid-4">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎖️</div>
+                            <div class="benefit-title">軍事顧問</div>
+                            <div class="benefit-desc">退役將軍和軍事專家提供專業指導</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🏆</div>
+                            <div class="benefit-title">體育顧問</div>
+                            <div class="benefit-desc">國際體育組織高管和賽事專家</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💼</div>
+                            <div class="benefit-title">商業顧問</div>
+                            <div class="benefit-desc">知名投資人和企業家戰略指導</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🔬</div>
+                            <div class="benefit-title">技術顧問</div>
+                            <div class="benefit-desc">AI、IoT、AR/VR領域技術專家</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: 合作夥伴 -->
+        <div class="slide fade-in">
+            <div class="slide-number">10/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">戰略合作生態</h1>
+                <div class="section-divider"></div>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">已確認合作夥伴</h2>
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-title">裝備技術合作</div>
+                            <div class="card-content">
+                                • 全球前5大軍工企業戰略合作<br>
+                                • 專業感應器技術提供商<br>
+                                • 無人機製造商獨家合作<br>
+                                • AI技術平台深度整合
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">場地建設合作</div>
+                            <div class="card-content">
+                                • 國際知名主題公園設計公司<br>
+                                • 大型地產開發商戰略合作<br>
+                                • 專業場地營運管理團隊<br>
+                                • 建築工程總承包商
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-title">媒體轉播合作</div>
+                            <div class="card-content">
+                                • 全球體育媒體集團合作意向<br>
+                                • 數位串流媒體平台戰略合作<br>
+                                • 專業內容製作公司<br>
+                                • 社群媒體平台推廣合作
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">教育培訓合作</div>
+                            <div class="card-content">
+                                • 知名大學體育學院合作<br>
+                                • 國際教育認證機構<br>
+                                • 職業培訓連鎖機構<br>
+                                • 線上教育平台整合
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 50px;">
+                    <h2 class="highlight">合作價值</h2>
+                    <div class="grid-4">
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">戰略合作夥伴</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">15億</div>
+                            <div class="stat-label">合作投資承諾(美元)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">全球媒體合作</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">供應鏈夥伴</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: 風險分析 -->
+        <div class="slide fade-in">
+            <div class="slide-number">11/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">風險分析與應對</h1>
+                <div class="section-divider"></div>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">主要風險因素</h2>
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-title">🔴 高風險</div>
+                            <div class="card-content">
+                                <strong>監管風險：</strong>各國對軍事模擬活動的監管差異<br>
+                                <strong>競爭風險：</strong>大型體育娛樂集團可能進入<br>
+                                <strong>技術風險：</strong>核心技術被模仿或超越
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">🟡 中等風險</div>
+                            <div class="card-content">
+                                <strong>市場風險：</strong>消費者接受度不達預期<br>
+                                <strong>資金風險：</strong>建設投入過大影響現金流<br>
+                                <strong>人才風險：</strong>核心人才流失
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="highlight">風險應對策略</h2>
+                        <div class="benefit-grid">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">⚖️</div>
+                                <div class="benefit-title">合規管理</div>
+                                <div class="benefit-desc">建立分層合規系統，積極與監管機構溝通合作</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">🛡️</div>
+                                <div class="benefit-title">技術保護</div>
+                                <div class="benefit-desc">全面專利保護，持續技術創新領先</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">🤝</div>
+                                <div class="benefit-title">戰略聯盟</div>
+                                <div class="benefit-desc">與行業巨頭建立深度合作，共同抵禦競爭</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">📊</div>
+                                <div class="benefit-title">分階段實施</div>
+                                <div class="benefit-desc">控制投資節奏，根據市場反饋調整策略</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 50px;">
+                    <h2 class="highlight">風險緩解措施</h2>
+                    <div class="grid-3">
+                        <div class="card">
+                            <div class="card-icon">💰</div>
+                            <div class="card-title">多元化收入</div>
+                            <div class="card-content">四大收入來源分散風險，即使單一業務受挫也能維持營運</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🌍</div>
+                            <div class="card-title">全球佈局</div>
+                            <div class="card-content">多區域營運減少地方政策風險，形成全球化保護</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">📋</div>
+                            <div class="card-title">保險保障</div>
+                            <div class="card-content">全面保險體系覆蓋，包括責任險、財產險、關鍵人員險</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: 投資亮點 -->
+        <div class="slide fade-in">
+            <div class="slide-number">12/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">投資亮點</h1>
+                <p class="slide-subtitle">為什麼選擇投資WMC</p>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">獨特價值主張</h2>
+                        <ul class="feature-list">
+                            <li>全球首個專業軍推賽事體系</li>
+                            <li>260億美元藍海市場的開拓者</li>
+                            <li>技術驅動的創新商業模式</li>
+                            <li>多元化可持續收入結構</li>
+                            <li>強大的品牌和IP價值</li>
+                            <li>全球網絡效應和規模經濟</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="highlight">財務吸引力</h2>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number success-color">10-15x</div>
+                                <div class="stat-label">預期投資回報</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">35%</div>
+                                <div class="stat-label">目標利潤率</div>
+                            </div>
+                        </div>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">5-7年</div>
+                                <div class="stat-label">投資週期</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number success-color">IPO</div>
+                                <div class="stat-label">明確退出路徑</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 50px;">
+                    <h2 class="highlight">戰略價值</h2>
+                    <div class="grid-3">
+                        <div class="card">
+                            <div class="card-icon">🏭</div>
+                            <div class="card-title">產業整合機會</div>
+                            <div class="card-content">有機會整合軍事裝備、體育娛樂、主題公園等多個產業，形成生態閉環</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🌐</div>
+                            <div class="card-title">全球擴張潛力</div>
+                            <div class="card-content">可複製的商業模式具備快速全球擴張能力，搶占先發優勢</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🔮</div>
+                            <div class="card-title">未來科技應用</div>
+                            <div class="card-content">AR/VR、AI、物聯網等前沿技術的理想應用場景，具備技術溢出價值</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: 融資需求 -->
+        <div class="slide fade-in">
+            <div class="slide-number">13/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">融資需求與用途</h1>
+                <div class="section-divider"></div>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">分輪融資計劃</h2>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">🚀 種子輪</div>
+                            <div class="revenue-amount">1000萬美元</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">完成概念驗證，建立核心團隊</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">📈 A輪</div>
+                            <div class="revenue-amount">5000萬美元</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">建設首批設施，啟動初期營運</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">🌍 B輪</div>
+                            <div class="revenue-amount">1億美元</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">全球擴張，多區域佈局</div>
+                        </div>
+                        <div class="revenue-stream">
+                            <div class="revenue-title">🏆 C輪</div>
+                            <div class="revenue-amount">1.5億美元</div>
+                            <div style="color: #e2e8f0; font-size: 1.1rem;">完善生態，準備上市</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="highlight">當前融資：A輪</h2>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">5000萬</div>
+                                <div class="stat-label">融資金額(美元)</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">15%</div>
+                                <div class="stat-label">出讓股權比例</div>
+                            </div>
+                        </div>
+                        <div class="stat-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">3.3億</div>
+                                <div class="stat-label">投前估值(美元)</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">18個月</div>
+                                <div class="stat-label">資金使用週期</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 50px;">
+                    <h2 class="highlight">A輪資金用途</h2>
+                    <div class="grid-4">
+                        <div class="card">
+                            <div class="card-icon">🏗️</div>
+                            <div class="card-title">基礎設施</div>
+                            <div class="card-content">
+                                <strong>2000萬美元 (40%)</strong><br>
+                                • 2個核心賽事基地<br>
+                                • 首個軍推公園建設<br>
+                                • 技術系統部署
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">⚙️</div>
+                            <div class="card-title">技術研發</div>
+                            <div class="card-content">
+                                <strong>1250萬美元 (25%)</strong><br>
+                                • 核心技術平台<br>
+                                • 裝備標準制定<br>
+                                • 專利申請
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">📢</div>
+                            <div class="card-title">市場行銷</div>
+                            <div class="card-content">
+                                <strong>1000萬美元 (20%)</strong><br>
+                                • 品牌建設<br>
+                                • 全球推廣<br>
+                                • 合作夥伴開發
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">👥</div>
+                            <div class="card-title">團隊建設</div>
+                            <div class="card-content">
+                                <strong>750萬美元 (15%)</strong><br>
+                                • 核心人才招募<br>
+                                • 團隊培訓<br>
+                                • 營運資金
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: 投資人權益 -->
+        <div class="slide fade-in">
+            <div class="slide-number">14/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">投資人權益與保障</h1>
+                <div class="section-divider"></div>
+                <div class="grid-2">
+                    <div>
+                        <h2 class="highlight">投資人權益</h2>
+                        <ul class="feature-list">
+                            <li>董事會席位(重大投資人)</li>
+                            <li>重大決策一票否決權</li>
+                            <li>財務資訊知情權</li>
+                            <li>優先購買權和反稀釋權</li>
+                            <li>清算優先權</li>
+                            <li>共同出售權</li>
+                        </ul>
+                        
+                        <h2 class="highlight" style="margin-top: 30px;">特殊權益</h2>
+                        <div class="benefit-grid">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">🎟️</div>
+                                <div class="benefit-title">賽事特權</div>
+                                <div class="benefit-desc">終身VIP觀賽權，專屬體驗服務</div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">🏢</div>
+                                <div class="benefit-title">商業機會</div>
+                                <div class="benefit-desc">軍推公園優先合作機會</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="highlight">風險保障機制</h2>
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-title">業績對賭協議</div>
+                            <div class="card-content">
+                                設立明確的業績指標和時間節點，未達標時管理層承擔相應責任，保障投資人利益
+                            </div>
+                        </div>
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-title">分階段投資</div>
+                            <div class="card-content">
+                                根據里程碑分批投入資金，降低投資風險，確保資金使用效率
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">退出保障</div>
+                            <div class="card-content">
+                                明確IPO時間表，如未能按時上市提供回購或其他退出方案
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 50px;">
+                    <h2 class="highlight">投資人價值創造</h2>
+                    <div class="grid-3">
+                        <div class="card">
+                            <div class="card-icon">🌐</div>
+                            <div class="card-title">資源整合</div>
+                            <div class="card-content">利用投資人在相關行業的資源網絡，加速業務發展和市場拓展</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🎯</div>
+                            <div class="card-title">戰略指導</div>
+                            <div class="card-content">投資人參與重大戰略決策，提供行業經驗和市場洞察</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🚀</div>
+                            <div class="card-title">增值服務</div>
+                            <div class="card-content">提供人才招募、技術對接、市場准入等全方位增值服務</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: 下一步行動 -->
+        <div class="slide fade-in">
+            <div class="slide-number">15/16</div>
+            <div class="slide-content">
+                <h1 class="slide-title">下一步行動計劃</h1>
+                <div class="section-divider"></div>
+                <div class="timeline-horizontal">
+                    <div class="timeline-item-horizontal">
+                        <div class="timeline-marker-horizontal"></div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-title">立即啟動</div>
+                            <div class="timeline-period">Q1 2025</div>
+                            <div style="color: #e2e8f0; line-height: 1.8;">
+                                • 完成A輪融資簽約<br>
+                                • 核心團隊到位<br>
+                                • 技術研發啟動<br>
+                                • 合作夥伴簽約
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item-horizontal">
+                        <div class="timeline-marker-horizontal"></div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-title">基礎建設</div>
+                            <div class="timeline-period">Q2-Q4 2025</div>
+                            <div style="color: #e2e8f0; line-height: 1.8;">
+                                • 首個賽事基地開工<br>
+                                • 技術系統測試<br>
+                                • 標準規則發布<br>
+                                • 隊伍招募啟動
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item-horizontal">
+                        <div class="timeline-marker-horizontal"></div>
+                        <div class="timeline-content-horizontal">
+                            <div class="timeline-title">首次賽事</div>
+                            <div class="timeline-period">Q1 2026</div>
+                            <div style="color: #e2e8f0; line-height: 1.8;">
+                                • 首屆區域性比賽<br>
+                                • 媒體轉播測試<br>
+                                • 市場反饋收集<br>
+                                • B輪融資準備
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 60px;">
+                    <h2 class="highlight">投資人支援需求</h2>
+                    <div class="grid-3">
+                        <div class="card">
+                            <div class="card-icon">💰</div>
+                            <div class="card-title">資金支援</div>
+                            <div class="card-content">
+                                <strong>5000萬美元A輪融資</strong><br>
+                                • 單一投資人：500萬美元起<br>
+                                • 領投機構：1500萬美元起<br>
+                                • 戰略投資人優先考慮
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🤝</div>
+                            <div class="card-title">資源對接</div>
+                            <div class="card-content">
+                                <strong>行業資源與人脈</strong><br>
+                                • 體育產業合作夥伴<br>
+                                • 軍工企業技術合作<br>
+                                • 地產開發商場地資源
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🎯</div>
+                            <div class="card-title">戰略指導</div>
+                            <div class="card-content">
+                                <strong>專業經驗與建議</strong><br>
+                                • 國際化擴張經驗<br>
+                                • 體育賽事營運指導<br>
+                                • IPO上市路徑規劃
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: 聯繫方式 -->
+        <div class="slide fade-in">
+            <div class="slide-number">16/16</div>
+            <div class="slide-content">
+                <div class="logo glow-text">WMC</div>
+                <div class="logo-subtitle">WORLD MILSIM CHAMPIONSHIP</div>
+                <h1 class="slide-title">感謝您的關注</h1>
+                <p class="slide-subtitle">期待與您共創軍事模擬競技產業的輝煌未來</p>
                 
-                <div style="margin-top: 2rem; text-align: center; color: var(--text-muted);">
-                    <p style="font-style: italic;">
-                        "成为下一个十年最具颠覆性的体育娱乐IP缔造者"
-                    </p>
+                <div class="grid-2" style="margin-top: 60px;">
+                    <div class="contact-info">
+                        <strong>聯繫資訊</strong>
+                        📧 investors@wmc.cool<br>
+                        🌐 www.wmc.cool<br><br>
+                        
+                        <strong>商務合作部</strong><br>
+                        📧 partnerships@wmc.cool<br><br>
+                        
+                        <strong>媒體關係部</strong><br>
+                        📧 media@wmc.cool
+                    </div>
+                    <div class="contact-info">
+                        <strong>獲取更多資訊：</strong><br>
+                        • 詳細商業計劃書<br>
+                        • 財務模型與預測<br>
+                        • 技術白皮書<br>
+                        • 市場調研報告<br>
+                        • 法律文件模板<br><br>
+                        
+                        <strong>實地考察：</strong><br>
+                        • 技術演示中心參觀<br>
+                        • 原型場地體驗<br>
+                        • 團隊面對面交流
+                    </div>
+                </div>
+                
+                <div style="margin-top: 60px;">
+                    <div class="highlight" style="font-size: 1.8rem; margin-bottom: 25px;">
+                        "成為全球軍事模擬競技產業的開創者和領導者"
+                    </div>
+                    <div style="color: #e2e8f0; font-size: 1.2rem; line-height: 1.6;">
+                        WMC - 不僅是一項賽事，更是一個改變行業格局的歷史性機遇
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Navigation Controls -->
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="nav-btn active" onclick="goToSlide(1)">封面</div>
+        <div class="nav-btn" onclick="goToSlide(2)">執行摘要</div>
+        <div class="nav-btn" onclick="goToSlide(3)">市場機會</div>
+        <div class="nav-btn" onclick="goToSlide(4)">商業模式</div>
+        <div class="nav-btn" onclick="goToSlide(5)">技術優勢</div>
+        <div class="nav-btn" onclick="goToSlide(6)">產品體系</div>
+        <div class="nav-btn" onclick="goToSlide(7)">發展規劃</div>
+        <div class="nav-btn" onclick="goToSlide(8)">財務規劃</div>
+        <div class="nav-btn" onclick="goToSlide(9)">核心團隊</div>
+        <div class="nav-btn" onclick="goToSlide(10)">合作夥伴</div>
+        <div class="nav-btn" onclick="goToSlide(11)">風險分析</div>
+        <div class="nav-btn" onclick="goToSlide(12)">投資亮點</div>
+        <div class="nav-btn" onclick="goToSlide(13)">融資需求</div>
+        <div class="nav-btn" onclick="goToSlide(14)">投資權益</div>
+        <div class="nav-btn" onclick="goToSlide(15)">行動計劃</div>
+        <div class="nav-btn" onclick="goToSlide(16)">聯繫方式</div>
+    </div>
+
+    <!-- Controls -->
     <div class="nav-controls">
-        <button class="nav-btn" onclick="prevSlide()">
-            <i class="fas fa-chevron-left"></i>
-            上一页
-        </button>
-        <button class="nav-btn" onclick="nextSlide()">
-            下一页
-            <i class="fas fa-chevron-right"></i>
-        </button>
-        <button class="nav-btn" onclick="toggleFullscreen()">
-            <i class="fas fa-expand"></i>
-            全屏
-        </button>
-    </div>
-
-    <!-- Slide Indicator -->
-    <div class="slide-indicator">
-        <span id="current-slide">1</span> / <span id="total-slides">12</span>
-    </div>
-    
-    <!-- Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
+        <button class="control-btn" onclick="previousSlide()">‹</button>
+        <button class="control-btn" onclick="nextSlide()">›</button>
     </div>
 
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        
-        document.getElementById('total-slides').textContent = totalSlides;
-        
+        let currentSlide = 1;
+        const totalSlides = 16;
+
         function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            slides[currentSlide].classList.add('prev');
+            const slides = document.querySelectorAll('.slide');
+            const navBtns = document.querySelectorAll('.nav-btn');
             
-            if (n >= totalSlides) {
-                currentSlide = 0;
-            } else if (n < 0) {
-                currentSlide = totalSlides - 1;
+            // 确保n在有效范围内
+            if (n > totalSlides) {
+                currentSlide = 1;
+            } else if (n < 1) {
+                currentSlide = totalSlides;
             } else {
                 currentSlide = n;
             }
             
-            setTimeout(() => {
-                slides.forEach(slide => {
-                    slide.classList.remove('prev', 'next');
-                });
-                slides[currentSlide].classList.add('active');
-            }, 100);
+            // 移除所有幻灯片的active类
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.classList.remove('fade-in');
+            });
             
-            document.getElementById('current-slide').textContent = currentSlide + 1;
-            updateProgressBar();
+            // 移除所有导航按钮的active类
+            navBtns.forEach(btn => btn.classList.remove('active'));
+            
+            // 添加active类和淡入动画到当前幻灯片
+            slides[currentSlide - 1].classList.add('active');
+            slides[currentSlide - 1].classList.add('fade-in');
+            
+            // 添加active类到当前导航按钮
+            navBtns[currentSlide - 1].classList.add('active');
+            
+            // 更新页面标题
+            document.title = `WMC投資簡報 - ${navBtns[currentSlide - 1].textContent} (${currentSlide}/${totalSlides})`;
         }
-        
+
         function nextSlide() {
             showSlide(currentSlide + 1);
         }
-        
-        function prevSlide() {
+
+        function previousSlide() {
             showSlide(currentSlide - 1);
         }
-        
+
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        // 键盘导航
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(1);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(totalSlides);
+            } else if (e.key >= '1' && e.key <= '9') {
+                const slideNum = parseInt(e.key);
+                if (slideNum <= totalSlides) {
+                    goToSlide(slideNum);
+                }
+            }
+        });
+
+        // 触摸滑动支持
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diffX = touchStartX - touchEndX;
+            const diffY = Math.abs(touchStartY - touchEndY);
+            
+            // 确保水平滑动比垂直滑动更明显
+            if (Math.abs(diffX) > swipeThreshold && diffY < swipeThreshold * 2) {
+                if (diffX > 0) {
+                    nextSlide(); // 向左滑动 - 下一张
+                } else {
+                    previousSlide(); // 向右滑动 - 上一张
+                }
+            }
+        }
+
+        // 全屏模式切换
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(err => {
-                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
-                });
+                document.documentElement.requestFullscreen();
             } else {
                 document.exitFullscreen();
             }
         }
-        
-        function updateProgressBar() {
-            const progress = ((currentSlide + 1) / totalSlides) * 100;
-            document.getElementById('progress-bar').style.width = `${progress}%`;
-        }
-        
-        // Keyboard navigation
+
+        // F11键切换全屏
         document.addEventListener('keydown', function(e) {
-            switch(e.key) {
-                case 'ArrowRight':
-                case ' ':
-                    e.preventDefault();
-                    nextSlide();
-                    break;
-                case 'ArrowLeft':
-                    e.preventDefault();
-                    prevSlide();
-                    break;
-                case 'f':
-                case 'F':
-                    e.preventDefault();
-                    toggleFullscreen();
-                    break;
-                case 'Home':
-                    e.preventDefault();
-                    showSlide(0);
-                    break;
-                case 'End':
-                    e.preventDefault();
-                    showSlide(totalSlides - 1);
-                    break;
+            if (e.key === 'F11') {
+                e.preventDefault();
+                toggleFullscreen();
             }
         });
-        
-        // Auto-advance (optional)
-        // setInterval(nextSlide, 10000);
-        
-        // Add animation classes when slides come into view
-        function addAnimationClasses() {
-            const activeSlide = document.querySelector('.slide.active');
-            if (activeSlide) {
-                const animatedElements = activeSlide.querySelectorAll('.card, .stat-number, .team-member');
-                animatedElements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.classList.add('fade-in');
-                    }, index * 100);
-                });
-            }
-        }
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            addAnimationClasses();
-            updateProgressBar();
-        });
-        
-        // Add animation on slide change
-        const originalShowSlide = showSlide;
-        showSlide = function(n) {
-            originalShowSlide(n);
-            setTimeout(addAnimationClasses, 200);
-        };
-        
-        // Touch/swipe support for mobile
-        let startX = 0;
-        let startY = 0;
-        
-        document.addEventListener('touchstart', function(e) {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-        });
-        
-        document.addEventListener('touchend', function(e) {
-            if (!startX || !startY) return;
-            
-            const endX = e.changedTouches[0].clientX;
-            const endY = e.changedTouches[0].clientY;
-            
-            const diffX = startX - endX;
-            const diffY = startY - endY;
-            
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                if (Math.abs(diffX) > 50) { // Minimum swipe distance
-                    if (diffX > 0) {
-                        nextSlide(); // Swipe left - next slide
-                    } else {
-                        prevSlide(); // Swipe right - previous slide
-                    }
-                }
-            }
-            
-            startX = 0;
-            startY = 0;
-        });
-        
-        // Presentation mode enhancements
-        document.addEventListener('click', function(e) {
-            // Click anywhere on slide to advance (except on buttons)
-            if (!e.target.closest('.nav-controls') && !e.target.closest('button')) {
-                nextSlide();
-            }
-        });
-        
-        // Auto-scale text for better readability
-        function adjustTextSize() {
-            const slides = document.querySelectorAll('.slide');
-            const viewportHeight = window.innerHeight;
-            
-            slides.forEach(slide => {
-                const content = slide.querySelector('.slide-content');
-                if (content) {
-                    const contentHeight = content.scrollHeight;
-                    if (contentHeight > viewportHeight * 0.9) {
-                        content.style.transform = `scale(${Math.min(1, (viewportHeight * 0.9) / contentHeight)})`;
-                        content.style.transformOrigin = 'top center';
-                    } else {
-                        content.style.transform = 'scale(1)';
-                    }
-                }
-            });
-        }
-        
-        // Adjust on resize
-        window.addEventListener('resize', adjustTextSize);
-        window.addEventListener('load', adjustTextSize);
-        
-        // Smooth transitions
-        document.querySelectorAll('.slide').forEach(slide => {
-            slide.style.transition = 'all 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
-        });
-        
-        // Print mode optimization
-        window.addEventListener('beforeprint', function() {
-            document.body.classList.add('print-mode');
-            document.querySelectorAll('.slide').forEach((slide, index) => {
-                slide.style.display = 'flex';
-                slide.style.pageBreakAfter = 'always';
-                slide.style.height = '100vh';
-                slide.style.position = 'relative';
-                slide.style.transform = 'none';
-                slide.style.opacity = '1';
-            });
-        });
-        
-        window.addEventListener('afterprint', function() {
-            document.body.classList.remove('print-mode');
-            document.querySelectorAll('.slide').forEach((slide, index) => {
-                if (index !== currentSlide) {
-                    slide.style.display = 'none';
-                }
-                slide.style.pageBreakAfter = 'auto';
-            });
-        });
-        
-        // Speaker notes (press 'n' to toggle)
-        const speakerNotes = {
-            0: "欢迎大家！WMC是全球首个标准化的军事模拟对抗赛事体系。今天我将向大家展示这个价值260亿美元市场中的巨大机会。",
-            1: "目前军推市场存在明显痛点：缺乏统一标准、观赏性不足、商业模式局限。但同时市场增长迅速，年增长率达15.7%。",
-            2: "WMC通过四大创新解决行业痛点：全场景体验、多层级体系、先进技术、主题公园模式。",
-            3: "我们构建了多元化的商业模式：40%来自军推公园，30%来自赛事，其余来自教育培训和IP衍生。",
-            4: "三阶段发展规划：基础建设期、全球扩张期、成熟运营期。预计5年内达到5亿美元年收入。",
-            5: "技术是我们的核心竞争力：命中判定系统、战场感知系统、无人系统规范、数据分析平台。",
-            6: "相比传统军推活动、电竞、极限运动，WMC具有独特的差异化优势和市场定位。",
-            7: "我们拥有跨界整合的顶级团队：体育产业专家、军事技术专家、运营管理专家。",
-            8: "财务模型显示强劲增长潜力：高毛利率65-75%，EBITDA率25-35%，优异的LTV/CAC比率。",
-            9: "A轮融资5000万美元，18-24个月发展资金，预期5-10倍投资回报。",
-            10: "我们充分识别风险并制定了相应的应对策略，现在正是进入市场的最佳时机。",
-            11: "加入我们，成为全球军推运动的缔造者！这是一个万亿级体育娱乐产业的历史性机会。"
-        };
-        
-        let showingNotes = false;
-        
-        function toggleSpeakerNotes() {
-            showingNotes = !showingNotes;
-            let notesDiv = document.querySelector('.speaker-notes');
-            
-            if (!notesDiv) {
-                notesDiv = document.createElement('div');
-                notesDiv.className = 'speaker-notes';
-                notesDiv.style.cssText = `
-                    position: fixed;
-                    bottom: 80px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    max-width: 800px;
-                    background: rgba(0, 0, 0, 0.9);
-                    color: white;
-                    padding: 1rem;
-                    border-radius: 10px;
-                    font-size: 0.9rem;
-                    z-index: 1002;
-                    display: none;
-                `;
-                document.body.appendChild(notesDiv);
-            }
-            
-            if (showingNotes) {
-                notesDiv.style.display = 'block';
-                notesDiv.textContent = speakerNotes[currentSlide] || "本页暂无演讲备注";
-            } else {
-                notesDiv.style.display = 'none';
-            }
-        }
-        
-        // Update speaker notes on slide change
-        const originalShowSlideWithNotes = showSlide;
-        showSlide = function(n) {
-            originalShowSlideWithNotes(n);
-            if (showingNotes) {
-                const notesDiv = document.querySelector('.speaker-notes');
-                if (notesDiv) {
-                    notesDiv.textContent = speakerNotes[currentSlide] || "本页暂无演讲备注";
-                }
-            }
-        };
-        
-        // Enhanced keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            switch(e.key.toLowerCase()) {
-                case 'n':
-                    e.preventDefault();
-                    toggleSpeakerNotes();
-                    break;
-                case 'h':
-                    e.preventDefault();
-                    alert(`快捷键帮助:
-                    ← / → : 上一页/下一页
-                    空格键 : 下一页
-                    Home/End : 首页/末页
-                    F/f : 全屏切换
-                    N/n : 演讲备注开关
-                    H/h : 帮助信息`);
-                    break;
-                case 'escape':
-                    if (document.fullscreenElement) {
-                        document.exitFullscreen();
-                    }
-                    if (showingNotes) {
-                        toggleSpeakerNotes();
-                    }
-                    break;
-            }
+
+        // 初始化显示第一张幻灯片
+        showSlide(currentSlide);
+
+        // 导航栏滚动支持
+        document.querySelector('.nav-container').addEventListener('wheel', function(e) {
+            e.preventDefault();
+            this.scrollLeft += e.deltaY;
         });
     </script>
 </body>
